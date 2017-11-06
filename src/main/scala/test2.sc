@@ -90,9 +90,11 @@ println(s"#4 - $rez4")
 // #5
 
 // your code goes here
+import java.io.File
 import scala.io.Source
 val n1=10
-val listOfLines = Source.fromFile("/home/inoquea/Documents/projects/test2/task5.txt").getLines.toList
+val f = new File(getClass.getClassLoader.getResource("task5.txt").getPath)
+val listOfLines = Source.fromFile(f).getLines.toList
 val listOfBigInt = listOfLines map (BigInt(_))
 val sum = listOfBigInt.foldLeft(BigInt(0))(_+_).toString.take(n1)
 
